@@ -5,8 +5,8 @@ namespace MatrixMultiplier
     public class Matrix
     {
         private int[,] array;
-        public int Height => array.GetUpperBound(0) + 1;
-        public int Width => array.GetUpperBound(1) + 1;
+        public int Height => array.GetLength(0);
+        public int Width => array.GetLength(1);
         public int this[int index1, int index2] { get { return array[index1, index2]; } set { array[index1, index2] = value; } }
 
         public Matrix(int Height, int Width)
@@ -34,10 +34,10 @@ namespace MatrixMultiplier
         public static Matrix operator +(Matrix operand1, Matrix operand2)
         {
             if (operand1.Width != operand2.Width || operand1.Height != operand2.Width)
-                throw new Exception("Impossible to add");
+                throw new ArgumentException("Impossible to add");
                 Matrix result = new Matrix(operand1.Width, operand1.Height);
                 for (int i = 0; i < operand1.Height; i++)
-                    for (int j = 0; j < operand1.Width; j++)
+                    for (int j = 0; j < operand1.Width; j++)a
                         result[i, j] = operand1[i, j] + operand2[i, j];
                 return result;
         }
