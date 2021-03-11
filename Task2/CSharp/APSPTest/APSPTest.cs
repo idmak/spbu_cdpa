@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MatrixProcessor;
 using MatrixProcessor.MatrixTools;
+using MatrixProcessor;
+using System;
+using Boolean = MatrixProcessor.Boolean;
 
 namespace APSPTest
 {
@@ -49,13 +51,14 @@ namespace APSPTest
             Matrix<Boolean> origin = new Matrix<Boolean>(4, 4);
             Matrix<Boolean> expected = new Matrix<Boolean>(4, 4);
 
-            for (int i = 0; i <= array0.GetUpperBound(0); i++)
-                for (int j = 0; j < array0.GetUpperBound(1); j++)
+            for (int i = 0; i < array0.GetLength(0); i++)
+                for (int j = 0; j < array0.GetLength(1); j++)
                 {
                     origin[i, j] = new Boolean(array0[i, j]);
                     expected[i, j] = new Boolean(array1[i, j]);
                 }
 
+            Console.WriteLine(origin.ToString());
             Matrix<Boolean> result = TransitiveClosureProcessor.Process(origin);
 
             Assert.AreEqual(expected, result);

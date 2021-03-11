@@ -8,8 +8,8 @@ namespace MatrixProcessor
         where T: class, ISemiRing, new()
     {
         private T[,] array;
-        public int Height => array.GetUpperBound(0) + 1;
-        public int Width => array.GetUpperBound(1) + 1;
+        public int Height => array.GetLength(0);
+        public int Width => array.GetLength(1);
         
         public T this[int index1, int index2] { get { return array[index1, index2]; } set { array[index1, index2] = value; } }
 

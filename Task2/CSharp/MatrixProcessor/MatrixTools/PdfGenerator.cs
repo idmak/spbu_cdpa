@@ -24,8 +24,7 @@ namespace MatrixProcessor
                 process.StartInfo.FileName = "dot";
                 process.StartInfo.Arguments = "-Tpdf " + output + ".dot" + " -o " + output + ".pdf";
                 process.Start();
-                while (!process.HasExited)
-                    process.Refresh();
+                process.WaitForExit();
             }
             File.Delete(output + ".dot");
 
