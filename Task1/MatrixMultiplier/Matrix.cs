@@ -37,7 +37,7 @@ namespace MatrixMultiplier
                 throw new ArgumentException("Impossible to add");
                 Matrix result = new Matrix(operand1.Width, operand1.Height);
                 for (int i = 0; i < operand1.Height; i++)
-                    for (int j = 0; j < operand1.Width; j++)a
+                    for (int j = 0; j < operand1.Width; j++)
                         result[i, j] = operand1[i, j] + operand2[i, j];
                 return result;
         }
