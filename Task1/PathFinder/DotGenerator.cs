@@ -10,12 +10,12 @@ namespace PathFinder
     {
         public static String GetDotCode(IVertexAndEdgeListGraph<TVertex, TEdge> graph, TryFunc<TVertex, IEnumerable<TEdge>> tryGetPath)
         {
-            HashSet<TEdge> shortestTree = new HashSet<TEdge>();
+            HashSet<TEdge> shortestPath = new HashSet<TEdge>();
             IEnumerable<TEdge> edges;
 
             foreach (TVertex vertex in graph.Vertices)
                 if (tryGetPath(vertex, out edges))
-                    shortestTree.UnionWith(edges);
+                    shortestPath.UnionWith(edges);
 
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("digraph G {");
@@ -29,7 +29,7 @@ namespace PathFinder
             foreach (TEdge edge in graph.Edges)
             {
                 builder.Append(edge.ToString());
-                if (shortestTree.Contains(edge))
+                if (shortestPath.Contains(edge))
                     builder.AppendLine(" [color = red];");
                 else
                     builder.AppendLine(" [];");
