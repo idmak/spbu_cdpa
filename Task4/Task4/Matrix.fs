@@ -61,7 +61,7 @@ module Matrix =
         let pattern = matrix |> Array2D.map (fun x -> not <| x.IsZero())
         let matrix' = 
             pattern 
-            |> Array2D.mapi (fun i j v -> if i = j then true else v)
+            |> Array2D.mapi (fun i j v -> (i = j) || v)
             |> Array2D.map BooleanSemiring
             |> Matrix
 
