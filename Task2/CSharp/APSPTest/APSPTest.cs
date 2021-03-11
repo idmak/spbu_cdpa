@@ -58,7 +58,6 @@ namespace APSPTest
                     expected[i, j] = new Boolean(array1[i, j]);
                 }
 
-            Console.WriteLine(origin.ToString());
             Matrix<Boolean> result = TransitiveClosureProcessor.Process(origin);
 
             Assert.AreEqual(expected, result);
