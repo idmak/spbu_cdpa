@@ -20,4 +20,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Task22\Task22.fsproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+  <Content Include="matrix.txt*">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+  </ItemGroup>
 </Project>

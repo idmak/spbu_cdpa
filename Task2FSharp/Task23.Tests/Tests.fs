@@ -8,7 +8,7 @@ open System.IO
 [<Tests>]
 let apspCorrectnessTest = testCase "Simple correctness test for apsp" <| fun () ->
     let matrixPath = "matrix.txt"
-    let actualPath =   Path.Combine [| __SOURCE_DIRECTORY__; "actual.txt"|]
+    let actualPath =  "actual.txt"
     let expectedPath = "expected.txt"
     let matrixType = "Integer"
 
