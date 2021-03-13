@@ -8,7 +8,7 @@ open Task21
 let integerCorrectnessTest = testCase "Multiplication correctness test int" <| fun () ->
     let matrixA = "intA.txt"
     let matrixB = "intB.txt"
-    let actualPath = "intActual.txt"
+    let actualPath = Path.Combine [| __SOURCE_DIRECTORY__; "intActual.txt"|]
     let expectedPath = "intExpected.txt"
     let matrixType = "Integer"
 
@@ -32,7 +32,7 @@ let integerCorrectnessTest = testCase "Multiplication correctness test int" <| f
 let booleanCorrectnessTest = testCase "Multiplication correctness test bool" <| fun () ->
     let matrixA = "boolA.txt"
     let matrixB = "boolB.txt"
-    let actualPath = "boolActual.txt"
+    let actualPath =  Path.Combine [| __SOURCE_DIRECTORY__; "boolActual.txt"|] 
     let expectedPath = "boolExpected.txt"
     let matrixType = "Boolean"
 

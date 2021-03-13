@@ -20,4 +20,14 @@
   <ItemGroup>
     <ProjectReference Include="..\Task21\Task21.fsproj" />
   </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <Content Update="boolA.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="boolB.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="boolExpected.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="boolActual.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="intA.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="intB.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="intExpected.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
