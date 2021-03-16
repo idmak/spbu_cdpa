@@ -40,10 +40,12 @@ let main argv =
     printfn "Start ..."
     printfn "%s" userCommandsHelper
 
-    let cts = new Threading.CancellationTokenSource()
     let dispatcher = Actors.dispatcher ()
 
-    let rec mainloop () = async {
+    let rec mainloop isAlive = 
+        if not isAlive then ()
+
+        let mutable isExit = false
         let input = Console.ReadLine().Trim()
         match input.Split " " with
         | [| "create"; varName; matrixType; size |] -> 
@@ -90,12 +92,12 @@ let main argv =
             dispatcher.PostAndReply(fun replyChannel -> UserRequest <| WaitAllAndExit replyChannel)
             |> List.iter (printfn "%s")
 
-            cts.Cancel()
+            isExit <- true
 
         | _ -> printfn "%s -> %s" input "Invalid command"
             
-        return! mainloop ()
-    }
+        mainloop <| not isExit
+    
 
-    Async.StartImmediate(mainloop (), cts.Token) 
+    mainloop true
     0
