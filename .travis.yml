@@ -15,7 +15,7 @@ install:
     - nuget restore Task4/Task4.sln
 
 script:
-    - dotnet build Task1/Homework1.sln
+    # - dotnet build Task1/Homework1.sln
       - dotnet build Task2/CSharp/CSharp.sln
     # - dotnet build Task3/Task3.sln
     - dotnet build Task4/Task4.sln
@@ -24,11 +24,8 @@ script:
     - dotnet build Task2FSharp/Task2.sln
     # - dotnet build Task3/Task3.sln
     # - dotnet build Task4/Task4.sln
-     - dotnet test Task1/Homework1.sln
+    # - dotnet test Task1/Homework1.sln
     - dotnet test Task2/CSharp/CSharp.sln
     - dotnet test Task2FSharp/Task2.sln
     # - dotnet test Task3/Task3.sln
     - dotnet test Task4/Task4.sln
-    
-
-
