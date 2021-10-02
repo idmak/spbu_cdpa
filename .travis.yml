@@ -29,6 +29,3 @@ script:
     - dotnet test Task2FSharp/Task2.sln
     # - dotnet test Task3/Task3.sln
     - dotnet test Task4/Task4.sln
-    
-
-
